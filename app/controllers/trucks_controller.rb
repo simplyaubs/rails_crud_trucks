@@ -30,6 +30,12 @@ class TrucksController < ApplicationController
     redirect_to trucks_path
   end
 
+  def destroy
+    @truck = Truck.find(params[:id]).delete
+
+    redirect_to trucks_path
+  end
+
   private
   def truck_params
     params.require(:truck).permit(:make, :model)

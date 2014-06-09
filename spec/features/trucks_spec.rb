@@ -33,4 +33,21 @@ feature 'CRUD favorite trucks' do
     expect(page).to_not have_content 'Ford'
     expect(page).to_not have_content 'Ranger'
   end
+
+  scenario 'User can delete a truck' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a truck'
+    fill_in 'Make', with: 'Ford'
+    fill_in 'Model', with: 'Ranger'
+    click_on 'Add truck'
+    expect(page).to have_content 'Ford'
+    expect(page).to have_content 'Ranger'
+    click_on 'Ford'
+    expect(page).to have_content 'Ford'
+    expect(page).to have_content 'Ranger'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Ford'
+    expect(page).to_not have_content 'Ranger'
+  end
 end
