@@ -1,0 +1,21 @@
+<%= form_for @truck do |f| %>
+  <p>
+    <%= f.label :make %>
+    <%= f.text_field :make %>
+  </p>
+  <p>
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </p>
+  <p>
+    <%= f.submit 'Add truck' %>
+  </p>
+<% end %>
+
+<% @trucks.each do |truck| %>
+<ul>
+  <li>
+    <%= truck.make %>, <%= truck.model %>
+  </li>
+</ul>
+<% end %>
